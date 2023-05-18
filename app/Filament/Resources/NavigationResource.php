@@ -39,7 +39,6 @@ class NavigationResource extends Resource
                 Card::make()->schema([
                     Select::make('page_id')
                         ->relationship('page', 'title')
-                        // ->options(Page::select('id', 'title')->get()->pluck('title', 'id'))
                         ->required(),
                     TextInput::make('name')->required(),
                     Textarea::make('description'),

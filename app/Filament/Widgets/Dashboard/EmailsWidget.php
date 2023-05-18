@@ -11,7 +11,7 @@ class EmailsWidget extends BaseWidget
     protected function getCards(): array
     {
         return [
-            Card::make('emails', '1'),
+            Card::make('emails', ContactForm::query()->count()),
         ];
     }
 }

@@ -3,7 +3,7 @@
 namespace App\Filament\Resources;
 
 use Filament\Forms\Components\Textarea;
-use App\Models\Page;
+
 use Filament\Forms\Components\Card;
 use App\Filament\Resources\SeoResource\Pages;
 use App\Models\Seo;
@@ -33,7 +33,6 @@ class SeoResource extends Resource
                     Select::make('page_id')
                         ->relationship('page', 'title')
                         ->label('мета заголовок.'),
-                        // ->options(Page::select('id', 'title')->get()->pluck('title', 'id')),
                     TextInput::make('meta_title')
                         ->columnSpanFull()
                         ->maxLength(50)
