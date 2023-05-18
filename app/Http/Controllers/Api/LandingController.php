@@ -8,7 +8,6 @@ use App\Models\ContactForm;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use App\Http\Resources\LandingResource;
-use App\Http\Requests\ContactFormRequest;
 use App\Http\Controllers\BaseApiController;
 
 class LandingController extends BaseApiController
@@ -29,9 +28,13 @@ class LandingController extends BaseApiController
         }
     }
 
-    public function contactForm(ContactFormRequest $request)
+    public function contactForm(Request $request)
     {
         try {
+            $request->validate([
+                'email' => 'required|unique:contact_forms|max:255',
+            ]);
+
             $form = ContactForm::create([
                 'email' => $request->email,
             ]);

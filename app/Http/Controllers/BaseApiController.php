@@ -13,10 +13,10 @@ class BaseApiController extends Controller
             'message' => $message
         ];
 
-        return response()->json($response, 200);
+        return response()->json($response);
     }
 
-    public function sendError(string $error, $code = null)
+    public function sendError(string $error)
     {
         $response = [
             'success' => false,
@@ -26,6 +26,6 @@ class BaseApiController extends Controller
             $response['data'] = $errorMessages;
         }
 
-        return response()->json($response, $code);
+        return response()->json($response);
     }
 }
